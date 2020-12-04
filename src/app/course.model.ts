@@ -1,3 +1,5 @@
+import { getLocaleDayNames } from '@angular/common';
+
 export class Courses {
     public title: string;
     public code: string;
@@ -13,6 +15,10 @@ export class Courses {
         this.startTime = startTime;
         this.endTime = endTime;
         this.credits = credits;
+
+    function getDays(days: string): string {
+        return this.days.join("/");
+    }
 
     }
 }
