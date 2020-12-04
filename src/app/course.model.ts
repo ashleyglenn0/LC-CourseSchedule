@@ -1,5 +1,3 @@
-import { getLocaleDayNames } from '@angular/common';
-
 export class Courses {
     public title: string;
     public code: string;
@@ -8,10 +6,10 @@ export class Courses {
     public endTime: string;
     public credits: number;
 
-    constructor(title: string, code: string, days: string, startTime: string, endTime: string, credits: number){
+    constructor(title: string, code: string, days: string[], startTime: string, endTime: string, credits: number){
         this.title = title;
         this.code = code;
-        this.days = [];
+        this.days = days;
         this.startTime = startTime;
         this.endTime = endTime;
         this.credits = credits;

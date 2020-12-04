@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Courses } from './course.model';
+
 
 
 @Component({
@@ -8,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-schedule';
+  
 }

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { CoursesComponent } from './courses/courses.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
