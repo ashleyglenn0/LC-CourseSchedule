@@ -13,10 +13,5 @@ export class Courses {
         this.startTime = startTime;
         this.endTime = endTime;
         this.credits = credits;
-
-    function getDays(days: string): string {
-        return this.days.join("/");
-    }
-
     }
 }

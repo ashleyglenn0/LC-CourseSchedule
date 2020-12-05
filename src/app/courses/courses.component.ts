@@ -7,18 +7,13 @@ import { Courses } from "../course.model";
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  courses: Courses[] = [
-    new Courses('Getting Happy','LC505',['Mon','Thur'],'10:00 AM','10:30 AM', 2)
-  ];
-  allCourses = [];
-  availableCourses = [];
-  myCourses = [];
+allCourses = [];
+availableCourses = [];
+myCourses = [];
 
-  constructor(allCourses, availableCourses, myCourses) {
-    this.allCourses = allCourses;
-    this.availableCourses = availableCourses;
-    this.myCourses = myCourses;
-   }
+constructor(){
+
+}
 
   ngOnInit(): void {
     this.allCourses = [
@@ -33,6 +28,7 @@ export class CoursesComponent implements OnInit {
       new Courses('Demystifying Asynchronicity','LC230',['Mon','Wed'],'2:00 PM','3:30 PM',3),
       new Courses('G Code Code Space','LC555',['Wed','Fri'],'10:00 AM','11:30 AM',3),
     ];
+
     this.availableCourses = this.allCourses.slice(0);
   }
 
