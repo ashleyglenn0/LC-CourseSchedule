@@ -10,7 +10,14 @@
 <div class="container">
     <h3 class="text-primary">Available Courses</h3>
     <ol>
-        <li *ngFor = "let course of course">{{ availableCourses }}</li>
+        <li *ngFor="let course of availableCourses">
+            <div class="col-12 vspace">
+                <h5 class="clickable">{{ course.title }} {{ course.code }}</h5>
+                    <p class="small">{{ course.days }} {{course.startTime}} to {{ course.endTime }} -
+                    {{ course.credits }} credits
+                </p>
+            </div>
+        </li>
     </ol>
     <div class="col-12 vspace">
         <h5 class="clickable">LC101 Intro to Web Development</h5>
