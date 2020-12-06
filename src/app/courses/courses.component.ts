@@ -31,5 +31,13 @@ constructor(){
 
     this.availableCourses = this.allCourses.slice(0);
   }
+  addCourse(index: number): void {
+    this.myCourses.push(this.availableCourses[index]);
+    this.availableCourses.splice(index,1);
+  }
+  removeCourse(index: number): void {
+    this.availableCourses.push(this.myCourses[index]);
+    this.myCourses.splice(index,1);
+  }
 
 }
