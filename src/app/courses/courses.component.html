@@ -1,10 +1,12 @@
 <div class="container">
     <h3 class="text-primary">My Courses</h3>
     <h4 class="text-uppercase">Total Credits: {{ sumCredits()}}</h4>
+    <div class="courseLoad" *ngIf = "fullCourseLoad === false"><p class="text-muted">Select Courses from the list below.</p></div>
+    <div *ngIf = "fullCourseLoad === true"><p class="text-danger">Your course load is full.</p></div>
     <ol>
         <li *ngFor="let course of myCourses; let i = index">
             <div class="col-12 vspace">
-                <h5 class="clickable" (click)="removeCourse(i);sort(myCourses)"><span class="text-danger glyphicon glyphicon-circle-arrow-down"></span> {{ course.title }} {{ course.code }}</h5>
+                <h5 class="clickable" (click)="removeCourse(i)"><span class="text-danger glyphicon glyphicon-circle-arrow-down"></span> {{ course.title }} {{ course.code }}</h5>
                     <p class="small"> {{course.getDays()}} {{course.startTime}} to {{ course.endTime }} -
                     {{ course.credits }} credits
                 </p>
@@ -18,8 +20,8 @@
     <ol>
         <li *ngFor="let course of availableCourses;let i = index">
             <div class="col-12 vspace">
-                <h5 class="clickable" (click)="addCourse(i);sort(availableCourses)"><span class="text-success glyphicon glyphicon-circle-arrow-up"></span>{{ course.title }} {{ course.code }}</h5>
-                    <p class="small"> {{course.getDays()}} {{course.startTime}} to {{ course.endTime }} -
+                <h5 [class.clickable]="!fullCourseLoad" (click)="addCourse(i)"[class.text-muted]="fullCourseLoad"><span *ngIf= "fullCourseLoad===false" class="text-success glyphicon glyphicon-circle-arrow-up"></span>{{ course.title }} {{ course.code }}</h5>
+                    <p [class.text-muted]="fullCourseLoad" class="small"> {{course.getDays()}} {{course.startTime}} to {{ course.endTime }} -
                     {{ course.credits }} credits
                 </p>
             </div>

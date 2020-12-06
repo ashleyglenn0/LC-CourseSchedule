@@ -10,6 +10,8 @@ export class CoursesComponent implements OnInit {
 allCourses = [];
 availableCourses = [];
 myCourses = [];
+noCourses = true;
+fullCourseLoad = false;
 
 constructor(){
 
@@ -44,12 +46,27 @@ constructor(){
     });
   }
   addCourse(index: number): void {
+    this.noCourses = false;
     this.myCourses.push(this.availableCourses[index]);
     this.availableCourses.splice(index,1);
+    this.sort(this.availableCourses);
+    this.checkLoad()
+    if (this.fullCourseLoad === false){
+      this.addCourse;
+    }else {
+      this.fullCourseLoad === true;
+    }
   }
   removeCourse(index: number): void {
     this.availableCourses.push(this.myCourses[index]);
     this.myCourses.splice(index,1);
+    this.sort(this.myCourses);
+    this.checkLoad()
+    if (this.sumCredits() === 0) {
+      this.noCourses === true;
+    } else{
+      this.noCourses === false;
+    }
   }
   sumCredits(): number {
     let sum = 0;
@@ -57,6 +74,13 @@ constructor(){
       sum += this.myCourses[i].credits;
     }
     return sum;
+  }
+  checkLoad(): void {
+    if (this.sumCredits() >= 15 || this.myCourses.length >= 6) {
+      this.fullCourseLoad = true;
+    } else {
+      this.fullCourseLoad = false;
+    }
   }
 
 }
