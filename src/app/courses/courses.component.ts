@@ -39,5 +39,12 @@ constructor(){
     this.availableCourses.push(this.myCourses[index]);
     this.myCourses.splice(index,1);
   }
+  sumCredits(): number {
+    let sum = 0;
+    for (let i=0; i < this.myCourses.length; i++) {
+      sum += this.myCourses[i].credits;
+    }
+    return sum;
+  }
 
 }
