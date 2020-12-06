@@ -28,8 +28,20 @@ constructor(){
       new Courses('Demystifying Asynchronicity','LC230',['Mon','Wed'],'2:00 PM','3:30 PM',3),
       new Courses('G Code Code Space','LC555',['Wed','Fri'],'10:00 AM','11:30 AM',3),
     ];
-
+    this.sort(this.allCourses);
     this.availableCourses = this.allCourses.slice(0);
+  }
+  
+  sort(array: Courses[]): void{
+    let key = "code";
+    array.sort(function(a: Courses, b: Courses): number {
+      if(a[key] < b[key]){
+        return -1;
+      } else if (a[key] > b[key]) {
+        return 1;
+      }
+      return 0;
+    });
   }
   addCourse(index: number): void {
     this.myCourses.push(this.availableCourses[index]);

@@ -4,7 +4,7 @@
     <ol>
         <li *ngFor="let course of myCourses; let i = index">
             <div class="col-12 vspace">
-                <h5 class="clickable" (click)="removeCourse(i)"><span class="text-danger glyphicon glyphicon-circle-arrow-down"></span> {{ course.title }} {{ course.code }}</h5>
+                <h5 class="clickable" (click)="removeCourse(i);sort(myCourses)"><span class="text-danger glyphicon glyphicon-circle-arrow-down"></span> {{ course.title }} {{ course.code }}</h5>
                     <p class="small"> {{course.getDays()}} {{course.startTime}} to {{ course.endTime }} -
                     {{ course.credits }} credits
                 </p>
@@ -18,7 +18,7 @@
     <ol>
         <li *ngFor="let course of availableCourses;let i = index">
             <div class="col-12 vspace">
-                <h5 class="clickable" (click)="addCourse(i)"><span class="text-success glyphicon glyphicon-circle-arrow-up"></span>{{ course.title }} {{ course.code }}</h5>
+                <h5 class="clickable" (click)="addCourse(i);sort(availableCourses)"><span class="text-success glyphicon glyphicon-circle-arrow-up"></span>{{ course.title }} {{ course.code }}</h5>
                     <p class="small"> {{course.getDays()}} {{course.startTime}} to {{ course.endTime }} -
                     {{ course.credits }} credits
                 </p>
